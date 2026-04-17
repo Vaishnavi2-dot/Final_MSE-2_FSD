@@ -1,0 +1,22 @@
+# Backend
+Backend/node_modules/
+Backend/.env
+Backend/package-lock.json
+
+# Frontend
+Frontend/node_modules/
+Frontend/.env
+Frontend/dist/
+Frontend/.vite/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
