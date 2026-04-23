@@ -31,14 +31,14 @@ const Navbar = ({ user, setUser }) => {
         gap: '15px'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontSize: '28px' }}>🎓</span>
+          <span style={{ fontSize: '28px' }}>🎓</span>  {/* Changed from 💰 to 🎓 */}
           <h1 style={{
             fontSize: '24px',
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            Grievance Manager
+            Grievance Manager  {/* Changed from Expense Manager */}
           </h1>
         </div>
         

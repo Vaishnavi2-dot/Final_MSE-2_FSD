@@ -46,7 +46,6 @@ app.get('/', (req, res) => {
     }
   });
 });
-
 // Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
