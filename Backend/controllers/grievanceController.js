@@ -1,8 +1,6 @@
 const Grievance = require('../models/Grievance');
 
-// @route   POST /api/grievances
-// @desc    Submit new grievance
-// @access  Private
+// Submit new grievance
 const submitGrievance = async (req, res) => {
   try {
     const { title, description, category } = req.body;
@@ -38,9 +36,7 @@ const submitGrievance = async (req, res) => {
   }
 };
 
-// @route   GET /api/grievances
-// @desc    Get all grievances of logged-in user
-// @access  Private
+// Get all grievances of logged-in user
 const getAllGrievances = async (req, res) => {
   try {
     const userId = req.user.id;
@@ -62,9 +58,7 @@ const getAllGrievances = async (req, res) => {
   }
 };
 
-// @route   GET /api/grievances/:id
-// @desc    Get grievance by ID
-// @access  Private
+// Get grievance by ID
 const getGrievanceById = async (req, res) => {
   try {
     const grievanceId = req.params.id;
@@ -92,9 +86,7 @@ const getGrievanceById = async (req, res) => {
   }
 };
 
-// @route   PUT /api/grievances/:id
-// @desc    Update grievance
-// @access  Private
+// Update grievance
 const updateGrievance = async (req, res) => {
   try {
     const grievanceId = req.params.id;
@@ -131,9 +123,7 @@ const updateGrievance = async (req, res) => {
   }
 };
 
-// @route   DELETE /api/grievances/:id
-// @desc    Delete grievance
-// @access  Private
+// Delete grievance
 const deleteGrievance = async (req, res) => {
   try {
     const grievanceId = req.params.id;
@@ -163,9 +153,7 @@ const deleteGrievance = async (req, res) => {
   }
 };
 
-// @route   GET /api/grievances/search?title=xyz
-// @desc    Search grievances by title
-// @access  Private
+// Search grievances
 const searchGrievances = async (req, res) => {
   try {
     const { title } = req.query;
@@ -179,7 +167,7 @@ const searchGrievances = async (req, res) => {
     
     const grievances = await Grievance.find({
       user: userId,
-      title: { $regex: title, $options: 'i' } // Case-insensitive search
+      title: { $regex: title, $options: 'i' }
     }).sort({ date: -1 });
     
     res.status(200).json({

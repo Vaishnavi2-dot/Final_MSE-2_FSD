@@ -27,14 +27,22 @@ app.use('/api', grievanceRoutes);
 // Test route
 app.get('/', (req, res) => {
   res.json({ 
-    message: 'Student Grievance Management API is running!',
+    message: '🎓 Student Grievance Management System API',
+    version: '1.0.0',
     status: 'active',
     endpoints: {
-      register: 'POST /api/register',
-      login: 'POST /api/login',
-      grievances: 'GET/POST /api/grievances',
-      grievanceById: 'GET/PUT/DELETE /api/grievances/:id',
-      search: 'GET /api/grievances/search?title=xyz'
+      auth: {
+        register: 'POST /api/register',
+        login: 'POST /api/login'
+      },
+      grievances: {
+        submit: 'POST /api/grievances',
+        getAll: 'GET /api/grievances',
+        getById: 'GET /api/grievances/:id',
+        update: 'PUT /api/grievances/:id',
+        delete: 'DELETE /api/grievances/:id',
+        search: 'GET /api/grievances/search?title=xyz'
+      }
     }
   });
 });
@@ -47,5 +55,5 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on port ${PORT}`);
+  console.log(`🚀 Grievance Management Server running on port ${PORT}`);
 });

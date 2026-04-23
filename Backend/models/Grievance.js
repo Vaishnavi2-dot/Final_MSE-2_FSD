@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const expenseSchema = new mongoose.Schema({
+const grievanceSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -9,32 +9,28 @@ const expenseSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, 'Title is required'],
-    trim: true,
-    maxlength: [100, 'Title cannot exceed 100 characters']
+    trim: true
   },
-  amount: {
-    type: Number,
-    required: [true, 'Amount is required'],
-    min: [0.01, 'Amount must be greater than 0']
+  description: {
+    type: String,
+    required: [true, 'Description is required'],
+    trim: true
   },
   category: {
     type: String,
     required: [true, 'Category is required'],
-    enum: ['Food', 'Travel', 'Bills', 'Shopping', 'Entertainment', 'Healthcare', 'Education', 'Other'],
+    enum: ['Academic', 'Hostel', 'Transport', 'Other'],
     default: 'Other'
   },
-  date: {
-    type: Date,
-    required: [true, 'Date is required'],
-    default: Date.now
+  status: {
+    type: String,
+    enum: ['Pending', 'Resolved'],
+    default: 'Pending'
   },
-  createdAt: {
+  date: {
     type: Date,
     default: Date.now
   }
 });
 
-// Index for efficient queries
-expenseSchema.index({ user: 1, date: -1 });
-
-module.exports = mongoose.model('Expense', expenseSchema);
+module.exports = mongoose.model('Grievance', grievanceSchema);
