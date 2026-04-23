@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Vite uses import.meta.env instead of process.env
 const API_URL = import.meta.env.VITE_API_URL || 'https://final-mse-2-fsd.onrender.com/api';
 
 const api = axios.create({
@@ -10,7 +9,6 @@ const api = axios.create({
   },
 });
 
-// Add token to requests if it exists
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -19,22 +17,19 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 // Auth APIs
 export const register = (userData) => api.post('/register', userData);
 export const login = (userData) => api.post('/login', userData);
 
-// Expense APIs
-export const addExpense = (expenseData) => api.post('/expense', expenseData);
-export const getExpenses = (category = '') => {
-  const url = category ? `/expenses?category=${category}` : '/expenses';
-  return api.get(url);
-};
-export const updateExpense = (id, expenseData) => api.put(`/expense/${id}`, expenseData);
-export const deleteExpense = (id) => api.delete(`/expense/${id}`);
+// Grievance APIs
+export const submitGrievance = (data) => api.post('/grievances', data);
+export const getAllGrievances = () => api.get('/grievances');
+export const getGrievanceById = (id) => api.get(`/grievances/${id}`);
+export const updateGrievance = (id, data) => api.put(`/grievances/${id}`, data);
+export const deleteGrievance = (id) => api.delete(`/grievances/${id}`);
+export const searchGrievances = (title) => api.get(`/grievances/search?title=${title}`);
 
 export default api;

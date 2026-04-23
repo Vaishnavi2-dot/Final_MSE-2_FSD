@@ -31,14 +31,14 @@ const Navbar = ({ user, setUser }) => {
         gap: '15px'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontSize: '28px' }}>💰</span>
+          <span style={{ fontSize: '28px' }}>📢</span>
           <h1 style={{
             fontSize: '24px',
             background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent'
           }}>
-            Expense Manager
+            Grievance Management System
           </h1>
         </div>
         
@@ -56,11 +56,8 @@ const Navbar = ({ user, setUser }) => {
                 border: 'none',
                 borderRadius: '8px',
                 fontSize: '14px',
-                cursor: 'pointer',
-                transition: 'all 0.3s'
+                cursor: 'pointer'
               }}
-              onMouseEnter={(e) => e.target.style.background = '#dc2626'}
-              onMouseLeave={(e) => e.target.style.background = '#ef4444'}
             >
               Logout
             </button>
