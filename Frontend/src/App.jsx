@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
+import Chatbot from './components/Chatbot';  // Add this import
 
 function App() {
   const [user, setUser] = useState(null);
@@ -30,6 +31,7 @@ function App() {
           </PrivateRoute>
         } />
       </Routes>
+      <Chatbot />  {/* Add Chatbot component here */}
     </Router>
   );
 }
