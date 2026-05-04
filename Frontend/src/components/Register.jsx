@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { register } from '../services/api';
 
 const Register = ({ setUser }) => {
@@ -85,11 +85,8 @@ const Register = ({ setUser }) => {
                 padding: '12px',
                 border: '2px solid #e5e7eb',
                 borderRadius: '8px',
-                fontSize: '16px',
-                transition: 'border 0.3s'
+                fontSize: '16px'
               }}
-              onFocus={(e) => e.target.style.borderColor = '#667eea'}
-              onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
             />
           </div>
 
@@ -148,8 +145,7 @@ const Register = ({ setUser }) => {
               fontSize: '16px',
               fontWeight: '600',
               cursor: loading ? 'not-allowed' : 'pointer',
-              opacity: loading ? 0.7 : 1,
-              transition: 'transform 0.2s'
+              opacity: loading ? 0.7 : 1
             }}
           >
             {loading ? 'Creating account...' : 'Register'}
@@ -158,9 +154,9 @@ const Register = ({ setUser }) => {
 
         <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '14px', color: '#666' }}>
           Already have an account?{' '}
-          <a href="/login" style={{ color: '#667eea', textDecoration: 'none' }}>
+          <Link to="/login" style={{ color: '#667eea', textDecoration: 'none' }}>
             Login here
-          </a>
+          </Link>
         </p>
       </div>
     </div>

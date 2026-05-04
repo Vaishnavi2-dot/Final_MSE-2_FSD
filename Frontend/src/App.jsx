@@ -6,7 +6,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
-import Chatbot from './components/Chatbot';  // Add this import
+import Chatbot from './components/Chatbot';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,15 +23,15 @@ function App() {
       <Navbar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/register" element={<Register setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
+        <Route path="/register" element={<Register setUser={setUser} />} />
         <Route path="/dashboard" element={
           <PrivateRoute>
             <Dashboard />
           </PrivateRoute>
         } />
       </Routes>
-      <Chatbot />  {/* Add Chatbot component here */}
+      <Chatbot />
     </Router>
   );
 }
