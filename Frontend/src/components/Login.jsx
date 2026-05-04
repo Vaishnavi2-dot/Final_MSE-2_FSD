@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';  // ← Added Link here
 import { login } from '../services/api';
 
 const Login = ({ setUser }) => {
@@ -131,9 +131,9 @@ const Login = ({ setUser }) => {
 
         <p style={{ textAlign: 'center', marginTop: '20px', fontSize: '14px', color: '#666' }}>
           Don't have an account?{' '}
-          <a href="/register" style={{ color: '#667eea', textDecoration: 'none' }}>
+          <Link to="/register" style={{ color: '#667eea', textDecoration: 'none' }}>
             Register here
-          </a>
+          </Link>
         </p>
       </div>
     </div>
